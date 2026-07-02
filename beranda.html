@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abyakta Media — Riset Bisnis & Investasi Indonesia</title>
+  <meta name="description" content="Abyakta Media: analisis mendalam ekonomi makro, investasi, pasar modal, dan industri Indonesia berbasis data terverifikasi untuk pengambilan keputusan bisnis yang lebih baik." />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNR7B7J2L2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XNR7B7J2L2');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1208;
+      --ink-light: #3d3120;
+      --ink-muted: #7a6e5f;
+      --paper: #faf8f3;
+      --paper-warm: #f5f1e8;
+      --paper-dark: #ede8dc;
+      --red: #c0392b;
+      --gold: #b8860b;
+      --gold-light: #d4a017;
+      --gold-pale: #fdf6e3;
+      --blue-dark: #1a3a5c;
+      --green: #1e6b3c;
+      --border: #d4cfc4;
+      --col: 1200px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .ticker {
+      background: var(--ink);
+      color: rgba(255,255,255,0.85);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 7px 0;
+      overflow: hidden;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+    .ticker-badge {
+      background: var(--gold);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .ticker-track { overflow: hidden; flex: 1; }
+    .ticker-inner {
+      display: flex;
+      width: max-content;
+      animation: ticker 45s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-inner span { padding: 0 40px; }
+    .ticker-inner span::before { content: '◆'; margin-right: 10px; color: var(--gold); font-size: 8px; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    .masthead {
+      background: var(--paper);
+      border-bottom: 3px double var(--border);
+      padding: 0 40px;
+    }
+    .masthead-top {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 22px 0 18px;
+      gap: 16px;
+    }
+    .masthead-left {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.6;
+    }
+    .masthead-center { text-align: center; }
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 68px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .brand-name em { font-style: normal; color: var(--gold); }
+    .brand-tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-top: 7px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5px 0;
+    }
+    .masthead-right {
+      text-align: right;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.6;
+    }
+    .edition-badge {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--gold-light);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 3px 10px;
+      margin-top: 5px;
+    }
+
+    nav {
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    nav a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      padding: 11px 20px;
+      border-right: 1px solid var(--border);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    nav a:first-child { border-left: 1px solid var(--border); }
+    nav a:hover { color: var(--ink); background: var(--paper-warm); }
+    nav a.active { color: var(--gold); border-bottom: 2px solid var(--gold); }
+
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 48px 0 24px;
+    }
+    .section-rule-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      white-space: nowrap;
+    }
+    .section-rule::before, .section-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .section-rule.gold .section-rule-label { color: var(--gold); }
+    .section-rule.gold::before, .section-rule.gold::after { background: var(--gold); opacity: 0.4; }
+
+    .page-wrap { max-width: var(--col); margin: 0 auto; padding: 0 40px 48px; }
+
+    .hero-feature {
+      border: 1px solid var(--border);
+      margin-top: 40px;
+      background: white;
+    }
+    .hero-feature-main {
+      background: var(--ink);
+      padding: 48px 48px 44px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 420px;
+    }
+    .hero-feature-main::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 10% 80%, rgba(184,134,11,0.20) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 15%, rgba(26,58,92,0.35) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .hero-feature-main > * { position: relative; }
+    .feature-cat {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .feature-cat::before { content: ''; display: block; width: 24px; height: 2px; background: var(--gold-light); }
+    .hero-feature-main h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .hero-feature-main p {
+      font-family: 'Source Serif 4', serif;
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+    .read-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      text-decoration: none;
+      border: 1px solid rgba(212,160,23,0.4);
+      padding: 10px 20px;
+      transition: all 0.2s;
+    }
+    .read-link:hover { background: rgba(212,160,23,0.12); border-color: var(--gold-light); }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .pillar {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 24px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .pillar.p1::before { background: var(--gold); }
+    .pillar.p2::before { background: var(--blue-dark); }
+    .pillar.p3::before { background: var(--green); }
+    .pillar-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+    .pillar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .pillar-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .pillar-count {
+      font-family: 'Playfair Display', serif;
+      font-size: 11px;
+      color: var(--ink-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+      font-style: italic;
+    }
+
+    /* Tentang teaser */
+    .tentang-teaser {
+      background: var(--ink);
+      padding: 44px 56px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+      border: 1px solid var(--border);
+    }
+    .tentang-teaser h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 900;
+      color: white;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .tentang-teaser h2 em { color: var(--gold-light); font-style: normal; }
+    .tentang-teaser p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .tentang-teaser-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      text-decoration: none;
+      border: 1px solid rgba(212,160,23,0.4);
+      padding: 13px 28px;
+      white-space: nowrap;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .tentang-teaser-link:hover { background: rgba(212,160,23,0.12); border-color: var(--gold-light); }
+
+    .newsletter {
+      background: var(--gold-pale);
+      border: 1px solid rgba(184,134,11,0.3);
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .newsletter-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .newsletter-text p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--ink-muted);
+    }
+    .newsletter-form { display: flex; gap: 0; flex-shrink: 0; }
+    .newsletter-form input {
+      padding: 11px 18px;
+      border: 1px solid var(--border);
+      border-right: none;
+      background: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--ink);
+      outline: none;
+      width: 260px;
+    }
+    .newsletter-form input::placeholder { color: var(--ink-muted); }
+    .newsletter-form button {
+      padding: 11px 24px;
+      background: var(--ink);
+      color: var(--gold-light);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .newsletter-form button:hover { background: #2d2010; }
+
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      padding: 56px 40px 32px;
+    }
+    .footer-inner { max-width: var(--col); margin: 0 auto; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 28px;
+    }
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 4px;
+    }
+    .footer-brand-name em { color: var(--gold); font-style: normal; }
+    .footer-tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-about {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+    .footer-col-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-copy { color: rgba(255,255,255,0.35); }
+    .footer-disclaimer { color: rgba(255,255,255,0.3); max-width: 560px; line-height: 1.5; }
+
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .pillars { grid-template-columns: 1fr 1fr; }
+      .tentang-teaser { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .page-wrap { padding: 0 20px; }
+      .masthead { padding: 0 20px; }
+      .masthead-top { grid-template-columns: 1fr; text-align: center; }
+      .masthead-left, .masthead-right { display: none; }
+      nav a { padding: 10px 14px; font-size: 10px; }
+      .pillars { grid-template-columns: 1fr; }
+      .tentang-teaser { padding: 32px 24px; }
+      .newsletter { flex-direction: column; padding: 28px 24px; }
+      .newsletter-form { width: 100%; flex-direction: column; }
+      .newsletter-form input { width: 100%; border-right: 1px solid var(--border); border-bottom: none; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="ticker">
+  <span class="ticker-badge">Live Update</span>
+  <div class="ticker-track">
+    <div class="ticker-inner">
+      <span>Wholesales otomotif Jan–Apr 2026 tumbuh +12,5% YoY mencapai 289.787 unit</span>
+      <span>BYD melesat +85,6% YoY — era EV Indonesia makin nyata</span>
+      <span>Ekspor CBU Indonesia naik +10,4% menjadi 159.662 unit</span>
+      <span>Impor otomotif CBU turun drastis –43,7% — lokalisasi membuahkan hasil</span>
+      <span>UMK Kota Bekasi 2026 tertinggi nasional: Rp 5.990.000/bulan</span>
+      <span>Daihatsu ADM KAP 2 beroperasi Feb 2025 — kapasitas total 530.000 unit/tahun</span>
+      <span>Utilisasi rata-rata industri otomotif Indonesia hanya ~22% — overcapacity struktural</span>
+      <span>BYD pilih Subang: UMK 39% lebih murah dari kawasan Karawang</span>
+      <span>Wholesales otomotif Jan–Apr 2026 tumbuh +12,5% YoY mencapai 289.787 unit</span>
+      <span>BYD melesat +85,6% YoY — era EV Indonesia makin nyata</span>
+      <span>Ekspor CBU Indonesia naik +10,4% menjadi 159.662 unit</span>
+      <span>Impor otomotif CBU turun drastis –43,7% — lokalisasi membuahkan hasil</span>
+      <span>UMK Kota Bekasi 2026 tertinggi nasional: Rp 5.990.000/bulan</span>
+      <span>Daihatsu ADM KAP 2 beroperasi Feb 2025 — kapasitas total 530.000 unit/tahun</span>
+      <span>Utilisasi rata-rata industri otomotif Indonesia hanya ~22% — overcapacity struktural</span>
+      <span>BYD pilih Subang: UMK 39% lebih murah dari kawasan Karawang</span>
+    </div>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <div class="masthead-left">
+      Tepat & Akurat <br>
+      Edisi Digital Indonesia
+    </div>
+    <div class="masthead-center">
+      <div class="brand-name">Abyakta<em>.</em></div>
+      <div class="brand-tagline">Riset Bisnis &amp; Investasi Indonesia</div>
+    </div>
+    <div class="masthead-right">
+      <br>
+      <div class="edition-badge">2026</div>
+    </div>
+  </div>
+  <nav>
+    <a href="beranda.html" class="active">Beranda</a>
+    <a href="kategori.html">Kategori</a>
+    <a href="tentang.html">Tentang Kami</a>
+  </nav>
+</header>
+
+<div class="page-wrap">
+
+  <div class="hero-feature" id="otomotif">
+    <div class="hero-feature-main">
+      <div class="feature-cat">Laporan Eksklusif &middot; Otomotif &amp; Industri</div>
+      <h2>Industri Otomotif Indonesia Tumbuh di Tengah Gempuran Merek Tiongkok</h2>
+      <p>
+        Penjualan wholesales tumbuh +12,5% YoY ke 289.787 unit, ekspor CBU naik +10,4%,
+        dan impor anjlok &ndash;43,7%. Di balik angka positif ini, sebuah pergeseran besar
+        sedang berlangsung: BYD melesat +85,6%, Jaecoo masuk dengan 11.284 unit, dan Honda
+        kehilangan 9.443 unit dalam setahun.
+      </p>
+      <a href="otomotif.html" class="read-link">Baca Analisis Lengkap &rarr;</a>
+    </div>
+  </div>
+
+  <div class="section-rule" style="margin-top:48px">
+    <span class="section-rule-label">Fokus Riset Abyakta Media</span>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar p1">
+      <span class="pillar-icon">🏭</span>
+      <div class="pillar-title">Industri &amp; Manufaktur</div>
+      <div class="pillar-desc">Analisis mendalam data produksi, ekspor-impor, kapasitas pabrik, biaya tenaga kerja, dan daya saing industri manufaktur Indonesia berbasis data GAIKINDO, BPS, dan Kemenperin.</div>
+      <div class="pillar-count">2 artikel diterbitkan &middot; 4 dalam pipeline</div>
+    </div>
+    <div class="pillar p2">
+      <span class="pillar-icon">📈</span>
+      <div class="pillar-title">Investasi &amp; Pasar Modal</div>
+      <div class="pillar-desc">Riset valuasi saham, pemetaan arus FDI, analisis sektor BEI, dan dampak kebijakan terhadap portofolio investasi — untuk investor individual maupun institusional.</div>
+      <div class="pillar-count">0 artikel diterbitkan &middot; 2 dalam pipeline</div>
+    </div>
+    <div class="pillar p3">
+      <span class="pillar-icon">🌏</span>
+      <div class="pillar-title">Ekonomi Makro &amp; Kebijakan</div>
+      <div class="pillar-desc">Interpretasi data makroekonomi Indonesia — neraca pembayaran, pertumbuhan PDB sektoral, kebijakan fiskal-moneter, dan posisi Indonesia di rantai pasok global.</div>
+      <div class="pillar-count">0 artikel diterbitkan &middot; 2 dalam pipeline</div>
+    </div>
+  </div>
+
+  <!-- TENTANG TEASER — menggantikan about-strip lama -->
+  <div class="section-rule" style="margin-top:48px">
+    <span class="section-rule-label">Tentang Kami</span>
+  </div>
+
+  <div class="tentang-teaser" style="margin-bottom:48px">
+    <div>
+      <h2>Riset yang <em>Jujur.</em> Data yang <em>Transparan.</em></h2>
+      <p>
+        Abyakta Media adalah platform analisis bisnis dan investasi Indonesia yang dibangun di atas
+        satu prinsip: setiap klaim harus dapat diverifikasi. Metodologi terbuka, sumber yang dapat
+        diklik, disclaimer yang jelas — termasuk asal nama <em style="color:var(--gold-light)">Abyakta</em>
+        dari bahasa Sanskerta yang berarti <em style="color:var(--gold-light)">"yang tak terungkap."</em>
+      </p>
+    </div>
+    <a href="tentang.html" class="tentang-teaser-link">Kenali Kami →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Abyakta<em>.</em></div>
+        <div class="footer-tagline">Riset Bisnis &amp; Investasi Indonesia</div>
+        <div class="footer-about">
+          Platform analisis data bisnis dan investasi Indonesia. Menyajikan riset mendalam berbasis data publik terverifikasi untuk pelaku industri, investor, pembuat kebijakan, dan masyarakat umum yang ingin memahami ekonomi Indonesia lebih dalam.
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Artikel</div>
+        <ul class="footer-links">
+          <li><a href="otomotif.html">Analisis GAIKINDO Jan&ndash;Apr 2026</a></li>
+          <li><a href="biaya-produksi.html">Biaya Produksi &amp; Labor Cost</a></li>
+          <li><a href="#">Saham Otomotif &amp; BEI <em style="color:var(--gold);font-style:normal;font-size:10px">(segera)</em></a></li>
+          <li><a href="#">Ekonomi Makro &amp; Neraca Dagang <em style="color:var(--gold);font-style:normal;font-size:10px">(segera)</em></a></li>
+          <li><a href="#">Transisi EV Indonesia 2025&ndash;2030 <em style="color:var(--gold);font-style:normal;font-size:10px">(segera)</em></a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Fokus Riset</div>
+        <ul class="footer-links">
+          <li><a href="#">Industri &amp; Manufaktur</a></li>
+          <li><a href="#">Investasi &amp; Pasar Modal</a></li>
+          <li><a href="#">Ekonomi Makro &amp; Kebijakan</a></li>
+          <li><a href="#">Energi &amp; Transisi EV</a></li>
+          <li><a href="#">Perdagangan Ekspor&ndash;Impor</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Sumber Data</div>
+        <ul class="footer-links">
+          <li><a href="https://gaikindo.or.id" target="_blank">GAIKINDO</a></li>
+          <li><a href="https://kemenperin.go.id" target="_blank">Kemenperin RI</a></li>
+          <li><a href="https://bps.go.id" target="_blank">BPS Indonesia</a></li>
+          <li><a href="https://databoks.katadata.co.id" target="_blank">Katadata</a></li>
+          <li><a href="https://bi.go.id" target="_blank">Bank Indonesia</a></li>
+          <li><a href="https://idx.co.id" target="_blank">Bursa Efek Indonesia</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Abyakta Media. Seluruh analisis adalah opini independen.</div>
+      <div class="footer-disclaimer">Data bersumber dari institusi publik terverifikasi. Estimasi biaya produksi adalah kalkulasi independen &mdash; bukan data resmi perusahaan. Tidak ada konten di platform ini yang merupakan rekomendasi investasi.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
