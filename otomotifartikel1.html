@@ -178,7 +178,6 @@
     nav a:hover { color: var(--ink); background: var(--paper-warm); }
     nav a.active { color: var(--gold); border-bottom: 2px solid var(--gold); }
 
-    /* ===== HERO ===== */
     .hero {
       background: var(--ink);
       color: white;
@@ -345,7 +344,6 @@
     .section-rule.gold .section-rule-label { color: var(--gold); }
     .section-rule.gold::before, .section-rule.gold::after { background: var(--gold); opacity: 0.4; }
 
-    /* ===== ARTICLE BODY ===== */
     .article-body {
       display: grid;
       grid-template-columns: 1fr 280px;
@@ -417,7 +415,6 @@
       color: var(--ink);
     }
 
-    /* pullquote */
     .pullquote {
       font-family: 'Playfair Display', serif;
       font-size: 19px;
@@ -432,7 +429,6 @@
       text-align: center;
     }
 
-    /* ===== DATA TABLES ===== */
     .data-table-wrap { margin: 24px 0; overflow-x: auto; }
     .data-table-label {
       font-family: 'DM Sans', sans-serif;
@@ -476,7 +472,6 @@
       font-weight: 700;
     }
 
-    /* ===== STAT CARDS ===== */
     .stat-cards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -521,7 +516,6 @@
       text-transform: uppercase;
     }
 
-    /* ===== BAR CHART ===== */
     .bar-chart { margin: 20px 0; }
     .bar-row {
       display: grid;
@@ -562,7 +556,6 @@
       color: var(--ink);
     }
 
-    /* ===== BULLET LIST ===== */
     .article-main ul {
       margin: 14px 0 18px 0;
       padding: 0;
@@ -586,7 +579,6 @@
     }
     .article-main ul li:last-child { border-bottom: none; }
 
-    /* ===== IMPLICATIONS ===== */
     .implication-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -678,7 +670,6 @@
     .key-fact-num.neg { color: var(--red); }
     .key-fact-desc { color: var(--ink-muted); font-size: 12px; }
 
-    /* ===== CONCLUSION ===== */
     .conclusion-block {
       background: var(--ink);
       color: white;
@@ -718,7 +709,6 @@
     }
     .conclusion-block ul li:last-child { border-bottom: none; }
 
-    /* ===== FOOTER ===== */
     footer {
       background: var(--ink);
       color: rgba(255,255,255,0.5);
@@ -774,7 +764,6 @@
     .footer-copy { color: rgba(255,255,255,0.35); }
     .footer-disclaimer { color: rgba(255,255,255,0.3); max-width: 560px; line-height: 1.5; }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .hero-stats { grid-template-columns: repeat(3, 1fr); }
       .article-body { grid-template-columns: 1fr; gap: 0; }
@@ -801,7 +790,6 @@
 </head>
 <body>
 
-<!-- TICKER -->
 <div class="ticker">
   <span class="ticker-badge">Live Update</span>
   <div class="ticker-track">
@@ -823,7 +811,6 @@
   </div>
 </div>
 
-<!-- MASTHEAD -->
 <header class="masthead">
   <div class="masthead-top">
     <div class="masthead-left">
@@ -846,7 +833,6 @@
 </nav>
 </header>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-kicker">Laporan Eksklusif &middot; Data GAIKINDO Jan–Apr 2026</div>
@@ -886,10 +872,8 @@
   </div>
 </div>
 
-<!-- MAIN CONTENT -->
 <div class="content-wrapper">
 
-  <!-- Executive Summary -->
   <div class="exec-summary" id="ringkasan">
     <h3>Ringkasan Eksekutif</h3>
     <p>
@@ -907,11 +891,9 @@
     </ul>
   </div>
 
-  <!-- Article Body -->
   <div class="article-body">
     <main class="article-main">
 
-      <!-- SECTION 1 -->
       <section id="penjualan">
         <div class="section-number">Bagian 01</div>
         <h2>Kinerja Penjualan Domestik</h2>
@@ -1007,7 +989,6 @@
         </div>
       </section>
 
-      <!-- SECTION 2 -->
       <section id="produksi">
         <div class="section-number">Bagian 02</div>
         <h2>Kinerja Produksi Domestik</h2>
@@ -1062,7 +1043,6 @@
         </div>
       </section>
 
-      <!-- SECTION 3 -->
       <section id="ekspor">
         <div class="section-number">Bagian 03</div>
         <h2>Kinerja Ekspor</h2>
@@ -1111,7 +1091,6 @@
         </p>
       </section>
 
-      <!-- SECTION 4 -->
       <section id="impor">
         <div class="section-number">Bagian 04</div>
         <h2>Kinerja Impor</h2>
@@ -1159,7 +1138,6 @@
         </p>
       </section>
 
-      <!-- SECTION 5 -->
       <section id="implikasi">
         <div class="section-number">Bagian 05</div>
         <h2>Implikasi Terhadap Perekonomian Indonesia</h2>
@@ -1207,7 +1185,6 @@
 
     </main>
 
-    <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="sidebar-widget">
         <div class="sidebar-widget-title">Daftar Isi</div>
@@ -1310,7 +1287,6 @@
     </aside>
   </div>
 
-  <!-- CONCLUSION -->
   <div class="conclusion-block" id="kesimpulan">
     <h2>Kesimpulan</h2>
     <p>
@@ -1334,7 +1310,6 @@
 
 </div><!-- /content-wrapper -->
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">

@@ -509,7 +509,6 @@
 </head>
 <body>
 
-<!-- TICKER -->
 <div class="ticker">
   <span class="ticker-badge">Live Update</span>
   <div class="ticker-track">
@@ -531,7 +530,6 @@
   </div>
 </div>
 
-<!-- MASTHEAD -->
 <header class="masthead">
   <div class="masthead-top">
     <div class="masthead-left">
@@ -554,10 +552,8 @@
 </nav>
 </header>
 
-<!-- PAGE CONTENT -->
 <div class="page-wrap">
 
-<!-- ===== CATEGORY OPTION (DROPDOWN) ===== -->
 <div class="category-nav">
   <div class="category-nav-label">Jelajahi Kategori</div>
   <div class="category-dropdown">
@@ -602,14 +598,12 @@
   </div>
 </div>
 
-  <!-- ARTICLE LIST -->
   <div class="section-rule gold" style="margin-top:36px">
     <span class="section-rule-label">Artikel Diterbitkan</span>
   </div>
 
   <div class="article-list" id="article-list">
 
-    <!-- Artikel Otomotif & Industri -->
     <a href="otomotifartikel1.html" class="article-row" data-category="otomotif-industri">
       <div>
         <div class="article-row-cat">Analisis Data &middot; GAIKINDO</div>
@@ -625,14 +619,12 @@
       </div>
     </a>
 
-    <!-- Pesan kalau kategori kosong -->
     <div class="article-empty" style="display:none;">Belum ada artikel untuk kategori ini.</div>
 
   </div>
 
 </div><!-- /page-wrap -->
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-bottom">
@@ -651,7 +643,6 @@
   const toggleLabel = document.getElementById('category-toggle-label');
   const dropdownList = document.getElementById('category-list');
 
-  // Hitung jumlah artikel per kategori dan isi badge count
   function updateCounts() {
     navItems.forEach(function (item) {
       const cat = item.getAttribute('data-category');
